@@ -1,17 +1,16 @@
-server:
-  port: 8085
-
 spring:
-  profiles:
-    active: dev
+  application:
+    name: respond-read-service
 
-#DB INFO
+  #DB INFO
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: continew
     password: continew36524
     url: jdbc:mysql://210.109.60.250:10007/uniqdb?zeroDateTimeBehavior=convertToNull&useUnicode=yes&characterEncoding=UTF-8&connectTimeout=2000&autoReconnect=true&serverTimezone=UTC&useSSL=false
 
+  # profiles:
+  #   active: dev
 
   #JPA/Hibernate
   jpa:
@@ -24,6 +23,20 @@ spring:
         format_sql: true
         show-sql: true
     show-sql: 'true'
+
+
+server:
+  port: 8085
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    preferIpAddress: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
 
 #Logging
 logging:
