@@ -8,6 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @Configuration
 @SpringBootApplication
 @EnableScheduling
+@EnableEurekaClient
 public class SurveyWriteApplication {
 
 	public static void main(String[] args) {
