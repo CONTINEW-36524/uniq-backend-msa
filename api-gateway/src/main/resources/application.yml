@@ -1,28 +1,40 @@
-server.port=8080
-spring.application.name=ZUUL
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
 
-endpoints.restart.enabled=true
-management.endpoint.shutdown.enabled=true
+spring:
+  application:
+    name: zuulservice
+  profiles:
+    active:
+      default
 
-zuul.ignored-services='*'
-zuul.ignored-patterns=/**/api/**
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.thoughtmechanix: DEBUG
 
-management.endpoints.web.exposure.include=*
+management:
+  endpoints:
+    web:
+      exposure:
+        include: routes
 
-eureka.client.serviceUrl.defaultZone=http://localhost:8787/eureka/
-  
-############################################################
-################### Route Configuration ####################
-# Increase the Hystrix timeout to 6.5s (globally)
-# Ribbon global settings
-ribbon.retryable=true
-# Max number of retries on the same server (excluding the first try)
-ribbon.MaxAutoRetries=0
-# Max number of next servers to retry (excluding the first server)
-ribbon.MaxAutoRetriesNextServer=1
-# Whether all operations can be retried for this client
-ribbon.OkToRetryOnAllOperations=true
-# Connect timeout used by Apache HttpClient
-ribbon.ConnectTimeout=30000
-# Read timeout used by Apache HttpClient
-ribbon.ReadTimeout=30000
+server:
+  port: 8080
+
+zuul:
+  ignored-services: '*'
+  prefix: /api
+  routes:
+    user-service: /user-service/**
+    survey-read-service: /survey-read-service/**
+    survey-write-service: /survey-write-service/**
+    respond-read-service: /respond-read-service/**
+    respond-write-service: /respond-write-service/**
