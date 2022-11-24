@@ -1,29 +1,28 @@
-server:
-  port: 8080
+server.port=8080
+spring.application.name=ZUUL
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://127.0.0.1:8787/eureka/
+endpoints.restart.enabled=true
+management.endpoint.shutdown.enabled=true
 
-zuul:
-  #Service will be mapped under the /api URI
-  prefix: /api
-  #  Uncomment to disable auto-registering all services read from Eureka
-  #  ignoredServices: '*'
-  routes:
-    test:
-      path: /redirect/**
-      url: http://google.com
-    customer-by-address:
-      path: /customer-by-address/**
-      url: http://localhost:9098
-    customer-by-service:
-      path: /customer-by-service/**
-      serviceId: CUSTOMER-SERVICE
-    static:
-      path: /static/**
+zuul.ignored-services='*'
+zuul.ignored-patterns=/**/api/**
 
-spring:
-  application:
-    name: zuul-server
+management.endpoints.web.exposure.include=*
+
+eureka.client.serviceUrl.defaultZone=http://localhost:8787/eureka/
+  
+############################################################
+################### Route Configuration ####################
+# Increase the Hystrix timeout to 6.5s (globally)
+# Ribbon global settings
+ribbon.retryable=true
+# Max number of retries on the same server (excluding the first try)
+ribbon.MaxAutoRetries=0
+# Max number of next servers to retry (excluding the first server)
+ribbon.MaxAutoRetriesNextServer=1
+# Whether all operations can be retried for this client
+ribbon.OkToRetryOnAllOperations=true
+# Connect timeout used by Apache HttpClient
+ribbon.ConnectTimeout=30000
+# Read timeout used by Apache HttpClient
+ribbon.ReadTimeout=30000
