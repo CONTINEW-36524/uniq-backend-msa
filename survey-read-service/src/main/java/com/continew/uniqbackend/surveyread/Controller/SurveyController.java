@@ -34,7 +34,22 @@ public class SurveyController {
 
 
 
+    //최신 템플릿
+    @GetMapping("/template/recent")
+    public List<Survey> getRecent(){
+        List<Survey> surveys = surveyRepository.findAll(Sort.by(Sort.Direction.DESC, "timestamp"));
+        //log.info(surveys.toString());
+        return surveys;
+    }
 
+    //인기 템플릿
+    @GetMapping("/template/popular")
+    public List<Survey> getPopular(){
+        List<Survey> surveys = surveyRepository.findAll(Sort.by(Sort.Direction.DESC, "likenum"));
+        //log.info(surveys.toString());
+
+        return surveys;
+    }
 
 
 
