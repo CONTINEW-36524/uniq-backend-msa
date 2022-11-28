@@ -1,0 +1,13 @@
+server:
+  port: 9090
+
+spring:
+  security:
+    user:
+      name: {{username}}
+      password: {{password}}
+  boot:
+    admin:
+      ui:
+        brand: <img src="assets/img/icon-spring-boot-admin.svg"><span>Spring Boot Admin</span>
+        title: Spring Boot Admin
