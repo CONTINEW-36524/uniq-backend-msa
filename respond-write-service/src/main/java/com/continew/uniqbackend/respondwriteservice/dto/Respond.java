@@ -2,7 +2,6 @@ package com.continew.uniqbackend.respondwriteservice.dto;
 
 import com.continew.uniqbackend.respondwriteservice.entity.RespondE;
 import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 @NoArgsConstructor

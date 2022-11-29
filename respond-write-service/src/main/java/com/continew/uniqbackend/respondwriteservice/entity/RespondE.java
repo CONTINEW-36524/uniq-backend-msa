@@ -3,7 +3,6 @@ package com.continew.uniqbackend.respondwriteservice.entity;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 @NoArgsConstructor
