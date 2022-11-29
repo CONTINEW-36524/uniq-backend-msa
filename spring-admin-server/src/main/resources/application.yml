@@ -4,8 +4,8 @@ server:
 spring:
   security:
     user:
-      name: {{username}}
-      password: {{password}}
+      name: admin
+      password: admin
   boot:
     admin:
       ui:

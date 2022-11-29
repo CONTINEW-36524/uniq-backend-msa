@@ -24,6 +24,20 @@ spring:
         show-sql: true
     show-sql: 'true'
 
+  #Admin Server Client
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090 # Spring Boot Admin Server URL
+        instance:
+          metadata:
+            # Spring Boot Admin Server에서 Client의 Actuator endpoint에 접근 인증시 사용
+            user:
+              name: survey-write-service
+              password: survey-write-service
+        # Client가 Spring Boot Admin에 접근 인증시 사용
+        username: admin
+        password: admin
 
 server:
   port: 8082

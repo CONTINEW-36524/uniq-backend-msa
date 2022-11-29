@@ -9,8 +9,8 @@ spring:
     password: continew36524
     url: jdbc:mysql://210.109.60.250:10007/uniqdb?zeroDateTimeBehavior=convertToNull&useUnicode=yes&characterEncoding=UTF-8&connectTimeout=2000&autoReconnect=true&serverTimezone=UTC&useSSL=false
 
-# profiles:
-#   active: dev
+  # profiles:
+  #   active: dev
 
   #JPA/Hibernate
   jpa:
@@ -23,6 +23,21 @@ spring:
         format_sql: true
         show-sql: true
     show-sql: 'true'
+
+  #Admin Server Client
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090 # Spring Boot Admin Server URL
+        instance:
+          metadata:
+            # Spring Boot Admin Server에서 Client의 Actuator endpoint에 접근 인증시 사용
+            user:
+              name: respond-write-service
+              password: respond-write-service
+        # Client가 Spring Boot Admin에 접근 인증시 사용
+        username: admin
+        password: admin
 
 
 server:
