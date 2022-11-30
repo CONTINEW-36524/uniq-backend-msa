@@ -65,4 +65,10 @@ public class RespondanswerController {
             System.out.println(saved.toString());
         }
     }
+
+
+    @GetMapping("/test")
+    public String test() {
+        return "respond-write-service and frontend connection success";
+    }
 }
