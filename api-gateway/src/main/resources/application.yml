@@ -31,6 +31,7 @@ server:
 
 zuul:
   ignored-services: '*'
+  sensitiveHeaders: Cookie,Set-Cookie
   routes:
     user-service:
       path: /user-service/**
@@ -47,3 +48,6 @@ zuul:
     respond-write-service:
       path: /respond-write-service/**
       url: http://localhost:8084
+#    myspace-read-service:
+#      path: /myspace-read-service/**
+#      url: http://localhost:8086

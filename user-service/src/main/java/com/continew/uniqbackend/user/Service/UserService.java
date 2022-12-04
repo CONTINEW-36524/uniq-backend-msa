@@ -41,7 +41,7 @@ public class UserService {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
         params.add("client_id","637c722561c612190048a1d771920d91");
-        params.add("redirect_uri", "http://210.109.60.250:10011/oauth/callback/kakao");
+        params.add("redirect_uri", "http://localhost:3000/oauth/callback/kakao");
         params.add("code", code);
         //params.add("client_secret", "{시크릿 키}"); // 생략 가능!
 
@@ -142,7 +142,7 @@ public class UserService {
     public User getUser(HttpServletRequest request) { //(1)
         //(2) 해당 request에는 jwtRequestFilter를 거쳐 인증이 완료된 사용자의 userCode가 요소로 추가되어 있음
         Long userCode = (Long) request.getAttribute("userCode");
-
+        System.out.println("#################usercode#############"+userCode);
         //(3) 가져온 userCode로 DB에서 사용자 정보를 가져와 user객체에 담는다
         User user = userRepository.findByUserCode(userCode);
 
