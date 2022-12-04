@@ -34,16 +34,11 @@ zuul:
   routes:
     user-service:
       path: /user-service/**
-      url: http://localhost:8081
     survey-read-service:
       path: /survey-read-service/**
-      url: http://localhost:8083
     survey-write-service:
       path: /survey-write-service/**
-      url: http://localhost:8082
     respond-read-service:
       path: /respond-read-service/**
-      url: http://localhost:8085
     respond-write-service:
       path: /respond-write-service/**
-      url: http://localhost:8084
