@@ -28,7 +28,7 @@ import org.springframework.web.filter.CorsFilter;
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    public static final String FRONT_URL = "http://localhost:3000";
+    public static final String FRONT_URL = "*";
 
     private final CorsFilter corsFilter;
 
