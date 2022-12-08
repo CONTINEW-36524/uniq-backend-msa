@@ -1,11 +1,17 @@
 package com.continew.uniqbackend.respondwriteservice.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
+@AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@Setter
 @Table(name = "respond")
 public class RespondE {
 
@@ -63,10 +69,10 @@ public class RespondE {
                 '}';
     }
 
-    public RespondE(Long respondid, Long surveyid, String rid_question, String answer){
-        this.surveyid=surveyid;
-        this.respondid=respondid;
-        this.rid_question=rid_question;
-        this.answer=answer;
-    }
+    // public RespondE(Long respondid, Long surveyid, String rid_question, String answer){
+    //     this.surveyid=surveyid;
+    //     this.respondid=respondid;
+    //     this.rid_question=rid_question;
+    //     this.answer=answer;
+    // }
 }

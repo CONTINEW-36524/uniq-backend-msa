@@ -8,6 +8,7 @@ import com.continew.uniqbackend.user.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,7 @@ public class UserController {
 
 
     // 프론트에서 인가코드 받아오는 url
+    @Cacheable(value = "User-kakao")
     @GetMapping("/kakao") // (3)
     public ResponseEntity getLogin(@RequestParam("code") String code) { //(4)
         log.info(code);
@@ -43,6 +45,7 @@ public class UserController {
         //(4) JWT가 담긴 헤더와 2000k 스테이터스 값, "success" body값을 ResponseEntity에 담아 프론트에 전달
         return ResponseEntity.ok().headers(headers).body("success");
     }
+    @Cacheable(value = "User-me")
     @GetMapping("/me")
     public ResponseEntity<Object> getCurrentUser(HttpServletRequest request) { //(1)
         log.info("여기 리퀘스트");

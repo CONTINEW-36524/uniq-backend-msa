@@ -57,6 +57,15 @@ dependencies {
 
 	// Admin server Client
 	implementation 'de.codecentric:spring-boot-admin-starter-client:2.7.4'
+	
+	// redis
+	implementation "org.springframework:spring-jdbc"
+	implementation 'org.springframework.data:spring-data-redis'
+	implementation ('org.springframework.boot:spring-boot-starter-data-redis') {
+		exclude group: 'io.lettuce:lettuce-core'
+	}
+	implementation 'redis.clients:jedis'
+
 }
 
 dependencyManagement {

@@ -1,15 +1,20 @@
 package com.continew.uniqbackend.user.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 
 @Entity
-@Data
+@AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@Setter
 @Table(name = "user") //(1)
 public class User {
     @Id
@@ -33,6 +38,47 @@ public class User {
     private String userRole;
 
 
+    public Long getUsercode() {
+        return userCode;
+    }
+    public void setUsercode(Long userCode) {
+        this.userCode = userCode;
+    }
+
+    public Long getKakaoid() {
+        return kakaoId;
+    }
+    public void setKakaoid(Long kakaoId) {
+        this.kakaoId = kakaoId;
+    }
+
+    public String getKakaoprofileimg() {
+        return kakaoProfileImg;
+    }
+    public void setKakaoprofileimg(String kakaoProfileImg) {
+        this.kakaoProfileImg = kakaoProfileImg;
+    }
+
+    public String getKakaonickname() {
+        return kakaoNickname;
+    }
+    public void setKakaonickname(String kakaoNickname) {
+        this.kakaoNickname = kakaoNickname;
+    }
+
+    public String getKakaoemail() {
+        return kakaoEmail;
+    }
+    public void setKakaoemail(String kakaoEmail) {
+        this.kakaoEmail = kakaoEmail;
+    }
+
+    public String getUserrole() {
+        return userRole;
+    }
+    public void setUserrole(String userRole) {
+        this.userRole = userRole;
+    }
 //    @Column(name = "create_time")
 //    @CreationTimestamp //(4)
 //    private Timestamp createTime;

@@ -1,0 +1,95 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringConfigServerApplication<spring-config-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.uniq.backend.springconfigserver.SpringConfigServerApplication",
+            "projectName": "spring-config-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EurekaClusterApplication<eureka-cluster>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.continew.eurekacluster.EurekaClusterApplication",
+            "projectName": "eureka-cluster",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ApiGatewayApplication<api-gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.continew.apigateway.ApiGatewayApplication",
+            "projectName": "api-gateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8758 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=api-gateway"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringAdminServerApplication<spring-admin-server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.continew.uniqbackend.springadminserver.SpringAdminServerApplication",
+            "projectName": "spring-admin-server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RespondReadServiceApplication<respond-read-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.continew.uniqbackend.respondreadservice.RespondReadServiceApplication",
+            "projectName": "respond-read-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RespondWriteServiceApplication<respond-write-service>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.continew.uniqbackend.respondwriteservice.RespondWriteServiceApplication",
+            "projectName": "respond-write-service",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SurveyreadApplication<surveyread>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.continew.uniqbackend.surveyread.SurveyreadApplication",
+            "projectName": "surveyread",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SurveyWriteApplication<SurveyWrite>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.continew.uniqbackend.SurveyWrite.SurveyWriteApplication",
+            "projectName": "SurveyWrite",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-UserApplication<user>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.continew.uniqbackend.user.UserApplication",
+            "projectName": "user",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

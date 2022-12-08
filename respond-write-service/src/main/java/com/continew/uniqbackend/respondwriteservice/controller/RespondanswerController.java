@@ -6,6 +6,7 @@ import com.continew.uniqbackend.respondwriteservice.dto.Respond;
 import com.continew.uniqbackend.respondwriteservice.repository.RespondERepository;
 import com.continew.uniqbackend.respondwriteservice.repository.SurveyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -22,7 +23,8 @@ public class RespondanswerController {
 
     @Autowired
     private RespondERepository respondERepository;
-
+    
+    @Cacheable(value = "WriteRespond-createRespond")
     @GetMapping("/create/respond")
     public HashMap<Long, List<DataDTOInterface>> getrespondpage(@RequestParam String url){
         List<DataDTOInterface> aa= surveyRepository.findbyurl(url);

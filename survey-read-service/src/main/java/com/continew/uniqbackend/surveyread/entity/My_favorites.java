@@ -1,11 +1,17 @@
 package com.continew.uniqbackend.surveyread.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
+@AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@Setter
 @Table(name = "fav_survey")
 public class My_favorites {
     @Id

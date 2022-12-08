@@ -93,12 +93,12 @@ public class UserService {
         String jwtToken = JWT.create()
 
                 //(2-3) payload에 들어갈 등록된 클레임 설정, exp는 jwtproperties의 만료 시간 필드를 불러와서 넣음
-                .withSubject(user.getKakaoEmail())
+                .withSubject(user.getKakaoemail())
                 .withExpiresAt(new Date(System.currentTimeMillis()+ JwtProperties.EXPIRATION_TIME))
 
                 //(2-4) payload에 들어갈 개인 클레임 설정, .withClaim(이름, 내용)형식 사용자를 식별할 수 있는 값을 넣음
-                .withClaim("id", user.getUserCode())
-                .withClaim("nickname", user.getKakaoNickname())
+                .withClaim("id", user.getUsercode())
+                .withClaim("nickname", user.getKakaonickname())
 
                 //(2-5) signature 설정, HMAC512알고리즘 사용 jwtproperies의 비밀 키 불러와서 넣어줌
                 .sign(Algorithm.HMAC512(JwtProperties.SECRET));

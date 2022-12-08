@@ -1,14 +1,22 @@
 package com.continew.uniqbackend.respondreadservice.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+import org.springframework.data.redis.core.RedisHash;
+import java.io.Serializable;
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
+@AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@Setter
 @Table(name = "respond")
-public class RespondE {
+public class RespondE implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,6 +26,10 @@ public class RespondE {
 
     @Column(name = "answer")
     private String answer;
+
+    @Column(name = "rid_question")
+    private String rid_question;
+
 
     public Long getRespondid() {
         return respondid;
@@ -51,9 +63,6 @@ public class RespondE {
         this.answer = answer;
     }
 
-    @Column(name = "rid_question")
-    private String  rid_question;
-
     @Override
     public String toString() {
         return "RespondE{" +
@@ -64,10 +73,10 @@ public class RespondE {
                 '}';
     }
 
-    public RespondE(Long respondid, Long surveyid, String rid_question, String answer){
-        this.surveyid=surveyid;
-        this.respondid=respondid;
-        this.rid_question=rid_question;
-        this.answer=answer;
-    }
+    // public RespondE(Long respondid, Long surveyid, String rid_question, String answer){
+    //     this.surveyid=surveyid;
+    //     this.respondid=respondid;
+    //     this.rid_question=rid_question;
+    //     this.answer=answer;
+    // }
 }

@@ -2,8 +2,12 @@ package com.continew.uniqbackend.surveyread.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -11,7 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Table(name = "survey")
 public class Survey {
