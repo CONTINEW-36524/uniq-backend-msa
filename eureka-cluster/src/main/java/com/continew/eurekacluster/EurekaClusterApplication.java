@@ -10,6 +10,8 @@ public class EurekaClusterApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EurekaClusterApplication.class, args);
+		
+		
 	}
 
 }
